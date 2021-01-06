@@ -1,0 +1,217 @@
+// Variables
+// ---------
+
+// colors
+$red: #e74c3c;
+$orange: #e67e22;
+$green: #2ecc71;
+$blue: #3498db;
+$white: #fff;
+
+$dark-blue-light: #34495e;
+$dark-blue-heavy: #2c3e50;
+
+
+// screen sizes
+$screen-xs: 26rem;
+$screen-sm: 48rem;
+$screen-md: 64rem;
+$screen-lg: 90rem;
+$screen-xl: 100rem;
+
+
+//  Media Queries // 
+// ----------------
+
+@mixin mobile-large {
+  @media (min-width: #{$screen-xs}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+	@media (min-width: #{$screen-sm}) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: #{$screen-md}) {
+		@content;
+	}
+}
+
+@mixin desktop-large {
+	@media (min-width: #{$screen-lg}) {
+		@content;
+	}
+}
+
+@mixin desktop-xlarge {
+	@media (min-width: #{$screen-xl}) {
+		@content;
+	}
+}
+
+
+// Generic
+// -------
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  *:after, *:before {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 16px;
+  }
+  
+  body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Roboto Slab', serif;
+    background-color: $blue;
+  }
+
+ul {
+    padding: 0;
+}
+
+h1 {
+    color: $dark-blue-heavy;
+    margin: 0;
+}
+
+h3 {
+  color: $dark-blue-heavy;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  margin: 5rem 0;
+
+  @include desktop {
+    font-size: 1.5rem;
+  }
+}
+
+
+// Main
+// ----
+
+.container {
+    text-align: center;
+    margin: 0;
+}
+
+.todo-input-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+
+  margin: 2rem 0 2rem;
+}
+
+.todo-input {
+  height: 37px;
+
+  border: none;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+
+  padding: 5px 15px;
+
+  color: $dark-blue-light;
+  font-size: 1rem;
+
+  outline: none;
+  line-height: 1.5;
+
+  @include desktop {
+    min-width: 20%;
+  }
+}
+
+.add-todo-button {
+  border: none;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+
+  font-size: 2.5rem;
+  color: #ccc;
+
+  position: relative;
+
+  width: 50px;
+
+  background-color: $dark-blue-light;
+  transition: background-color 0.25s ease-out;
+
+  &:hover {
+    background-color: $dark-blue-heavy;
+    color: $blue;
+  }
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.todo {
+    font-size: 1rem;
+
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+
+    min-height: 2rem;
+    width: 90%;
+
+    margin: 0 auto;
+    padding: 1rem;
+
+    @include tablet {
+      width: 65%;
+    }
+
+    @include desktop {
+      font-size: 1.5rem;
+    }
+
+    @include desktop-large {
+      width: 50%;
+    }
+
+    @include desktop-xlarge {
+      width: 30%;
+    }
+}
+
+.todo__text {
+  color: #f9f8f8;
+}
+
+.far, .fas {
+    font-size: 1.5rem;
+    align-self: center;
+    justify-self: center;
+
+    @include desktop {
+      font-size: 2.5rem;
+    }
+}
+
+.fa-check-circle, .fa-circle {
+  color: $green;
+}
+
+.fa-times {
+  color: $red;
+}
